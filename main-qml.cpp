@@ -1,4 +1,4 @@
-#include "Config.h"
+#include "TempConfig.h"
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -7,7 +7,7 @@
 int main(int argc, char* argv[]) {
     QGuiApplication app(argc, argv);
 
-    Config config("config.ini");
+    TempConfig config("config.ini");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("config", &config);

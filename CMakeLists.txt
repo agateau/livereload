@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 CONFIG REQUIRED Core Quick Widgets)
 
 add_executable(livereload
-    Config.cpp
+    TempConfig.cpp
     main.cpp
 )
 
@@ -22,7 +22,7 @@ target_link_libraries(livereload
     PRIVATE Qt5::Core Qt5::Widgets)
 
 add_executable(livereload-qml
-    Config.cpp
+    TempConfig.cpp
     main-qml.cpp
     qml.qrc
 )

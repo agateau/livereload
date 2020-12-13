@@ -1,11 +1,11 @@
-#include "Config.h"
+#include "TempConfig.h"
 
 #include <QApplication>
 #include <QLabel>
 
 #include <QSettings>
 
-static void configureLabel(QLabel* label, Config* config) {
+static void configureLabel(QLabel* label, TempConfig* config) {
     QFont font;
     font.setPixelSize(config->fontSize);
     label->setFont(font);
@@ -18,7 +18,7 @@ static void configureLabel(QLabel* label, Config* config) {
 int main(int argc, char* argv[]) {
     QApplication app(argc, argv);
 
-    Config config("config.ini");
+    TempConfig config("config.ini");
 
     QLabel label("Hello World");
     configureLabel(&label, &config);
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     label.setWindowTitle("Reload (QWidget)");
 
     QObject::connect(
-        &config, &Config::changed, &label, [&label, &config] { configureLabel(&label, &config); });
+        &config, &TempConfig::changed, &label, [&label, &config] { configureLabel(&label, &config); });
 
     label.show();
 
